@@ -49,6 +49,15 @@ if !exists('g:scratch_filename')
 else
     let ScratchBufferName = escape(g:scratch_filename, ' ')
 endif
+let ScratchBufferNameDefault = ScratchBufferName
+
+function! s:ScratchWatch()
+  let g:ScratchBufferName = expand("%:p")
+endfunction
+
+function! s:ScratchReset()
+  let g:ScratchBufferName = g:ScratchBufferNameDefault
+endfunction
 
 " Open the scratch buffer
 function! s:ScratchBufferOpen(new_win, vert)
@@ -238,4 +247,10 @@ command! -nargs=0 -bar VscratchToggle call s:ScratchBufferToggle(1)
 
 " Command to open the scratch buffer in a new tab
 command! -nargs=0 Tscratch call s:ScratchBufferOpen(2, 0)
+
+" Command to mark a buffer to be the scratch buffer.
+command! -nargs=0 ScratchWatch call s:ScratchWatch()
+
+" Command to reset the scratch buffer to the default.
+command! -nargs=0 ScratchReset call s:ScratchReset()
 

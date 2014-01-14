@@ -74,6 +74,14 @@ To open the scratch buffer in a new tab, use the following command:
 >
       :Tscratch
 <
+Choose any open file to be the scratch buffer.  Mark the current active buffer to be the scratch buffer with:
+>
+      :ScratchWatch
+<
+To reset the scratch buffer to the default use:
+>
+      :ScratchReset
+<
 When you close the scratch buffer window, the buffer will retain the
 contents. You can again edit the scratch buffer by openeing it using one of
 the above commands. There is no need to save the scatch buffer.
