@@ -86,6 +86,7 @@ function! s:ScratchBufferOpen(new_win, vert)
             exe "edit " . g:ScratchBufferName
         endif
         let s:scr_fullpath = expand("%:p")
+        setfiletype scratch
     else
         " Scratch buffer is already created. Check whether it is open
         " in one of the windows
@@ -111,7 +112,6 @@ function! s:ScratchBufferOpen(new_win, vert)
             endif
         endif
     endif
-    setfiletype scratch
 
     " If a scratch file is configured, load its content into the scratch
     " buffer.
